@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "prettier": "^3.3.3",
+    "xlsx": "^0.18.5"
+  }
+}
