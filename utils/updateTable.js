@@ -14,7 +14,7 @@ export const updateTable = () => {
 
   const todayData = new Date();
   const day = String(todayData.getDate()).padStart(2, "0");
-  const month = String(todayData.getMonth() + 1).padStart(2, "0"); // Месяцы в JS начинаются с 0
+  const month = String(todayData.getMonth() + 1).padStart(2, "0");
   const year = todayData.getFullYear();
   const formattedDate = `${day}.${month}.${year}`;
 
@@ -27,7 +27,7 @@ export const updateTable = () => {
   data[0].push(formattedDate);
 
   for (let i = 1; i < data.length && i - 1 < lastElements.length; i++) {
-    data[i].push(lastElements[i - 1]); // Добавляем значение из массива цен в конец подмассива
+    data[i].push(lastElements[i - 1]);
   }
   const updatedSheet = XLSX.utils.aoa_to_sheet(data);
 

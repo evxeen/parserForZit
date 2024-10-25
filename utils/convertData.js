@@ -48,28 +48,23 @@ export const convertData = (data, path) => {
     })
     .filter((item) => item.length !== 0);
 
-  // Преобразование данных в нужный формат
   let transformedData = [];
   let accumulatedString = "";
 
   template.forEach((row) => {
     if (row.every((item) => typeof item === "string")) {
-      // Если строка содержит только текстовые элементы, объединяем их
       accumulatedString += row.join(" ") + " ";
     } else if (row.every((item) => typeof item === "number")) {
       // Если массив содержит только числа
       if (row.length === 2) {
-        // Если в массиве два элемента, добавляем две пустые строки
         transformedData.push([accumulatedString.trim(), "", "", ...row]);
       } else {
-        // В остальных случаях добавляем одну пустую строку
         transformedData.push([accumulatedString.trim(), "", ...row]);
       }
       accumulatedString = "";
     }
   });
 
-  // Если остались неиспользованные строки, добавляем их как последний элемент
   if (accumulatedString.trim() !== "") {
     transformedData.push([accumulatedString.trim()]);
   }
